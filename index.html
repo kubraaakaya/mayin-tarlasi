@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no" />
+  <meta name="theme-color" content="#101827" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Mayın Tarlası" />
+  <title>Mayın Tarlası • Offline</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icon.svg" type="image/svg+xml" />
+  <style>
+    :root{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color-scheme:dark;--bg:#0c1220;--panel:#182338;--line:#33425b;--accent:#72e3ba;--text:#f2f6ff;--muted:#b7c5d9;--tile:#32445f;--tile2:#415a78}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top,#1c304c,var(--bg) 65%);color:var(--text);min-height:100dvh}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+    .app{max-width:860px;margin:auto;padding:18px 14px 34px}header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}h1{font-size:clamp(24px,6vw,34px);margin:0;font-weight:850;letter-spacing:-.8px}.subtitle{margin:5px 0 0;color:var(--muted);font-size:12px}.pill{font-size:11px;padding:7px 9px;border:1px solid #477765;background:#1d3b39;border-radius:999px;color:#bdf6de;font-weight:700}
+    .panel{background:rgba(24,35,56,.95);border:1px solid var(--line);border-radius:18px;padding:14px;margin-bottom:12px;box-shadow:0 8px 30px #0002}
+    .preset{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px}.choice,.action{border:1px solid #4b607c;background:#263955;color:var(--text);border-radius:11px;padding:10px 12px;font-weight:720}.choice.active{background:#265c53;border-color:var(--accent);color:#bffbe4}.custom{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.field label{display:block;font-size:12px;color:var(--muted);margin-bottom:5px}.field input{display:block;width:100%;min-width:0;background:#0d1729;color:var(--text);border:1px solid #4b607c;padding:10px 9px;border-radius:10px;font-weight:700}small{color:var(--muted)}.settings-foot{display:flex;align-items:center;gap:12px;margin-top:12px;flex-wrap:wrap}#newGame{background:var(--accent);color:#10251e;border:0;flex:1;padding:12px 14px;border-radius:11px;font-weight:850}#validation{font-size:12px;color:#ffc29f;min-height:1em}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.stat{background:#101b2e;border-radius:12px;padding:10px 5px;text-align:center}.stat b{display:block;font-size:23px;font-variant-numeric:tabular-nums}.stat span{display:block;font-size:11px;color:var(--muted)}.status{font-size:14px;font-weight:750;text-align:center;margin:13px auto;min-height:20px}.tools{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}.mode{border:1px solid #4b607c;background:#22344f;border-radius:12px;padding:11px 14px;font-weight:750;color:var(--text);flex:1;max-width:200px}.mode.active{background:#285d50;border-color:var(--accent);color:#caffeb}
+    .boardOuter{overflow:auto;max-width:100%;padding:10px 2px 16px;overscroll-behavior:contain}.board{--size:35px;display:grid;gap:3px;width:max-content;margin:0 auto;padding:7px;border:1px solid #465874;background:#1c2a41;border-radius:12px;touch-action:pan-x pan-y;user-select:none;-webkit-user-select:none}.tile{height:var(--size);width:var(--size);padding:0;display:grid;place-items:center;border:1px solid #607895;border-bottom:3px solid #17263c;background:linear-gradient(160deg,var(--tile2),var(--tile));border-radius:6px;color:#fff;font-weight:900;font-size:calc(var(--size)*.52);line-height:1;-webkit-tap-highlight-color:transparent}.tile:active:not(.open){filter:brightness(1.2)}.tile.open{background:#142137;border:1px solid #283b56;border-bottom-width:1px;cursor:default}.tile.flag{background:#475774}.tile.mine{background:#8e3848}.tile.blast{background:#ed5165}.tile.n1{color:#7ac6ff}.tile.n2{color:#81e0ae}.tile.n3{color:#ff9c92}.tile.n4{color:#c1a5ff}.tile.n5{color:#ffc68d}.tile.n6{color:#60dfe1}.tile.n7{color:#fff}.tile.n8{color:#b9c1ce}
+    .hint{font-size:12px;line-height:1.55;color:var(--muted);text-align:center;margin:4px 0 0}.footer{font-size:11px;color:#98aac2;text-align:center;line-height:1.5;padding-top:3px}.records{font-size:12px;color:var(--muted);margin-top:8px}#toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);padding:12px 16px;border-radius:12px;background:#28453f;color:#dbfff1;z-index:8;box-shadow:0 4px 20px #0005;pointer-events:none;opacity:0;transition:opacity .2s}#toast.show{opacity:1}
+    @media(max-width:400px){.app{padding:14px 9px 28px}.panel{padding:11px}.board{gap:2px;padding:5px}.choice{padding:9px 10px}.subtitle{font-size:11px}}
+  </style>
+</head>
+<body>
+<main class="app">
+  <header><div><h1>Mayın Tarlası</h1><p class="subtitle">Kendi tarlanı oluştur, istediğin yerde oyna.</p></div><span class="pill">ÇEVRİMDIŞI</span></header>
+  <section class="panel" aria-label="Oyun ayarları"><div class="preset"><button class="choice active" data-preset="easy">Kolay</button><button class="choice" data-preset="medium">Orta</button><button class="choice" data-preset="hard">Zor</button><button class="choice" data-preset="custom">Özel</button></div>
+    <div class="custom"><div class="field"><label for="rows">Satır</label><input id="rows" type="number" inputmode="numeric" min="5" max="30" value="9"></div><div class="field"><label for="cols">Sütun</label><input id="cols" type="number" inputmode="numeric" min="5" max="30" value="9"></div><div class="field"><label for="mines">Mayın</label><input id="mines" type="number" inputmode="numeric" min="1" value="10"></div></div>
+    <div class="settings-foot"><button id="newGame">↻ Yeni oyun başlat</button><div id="validation" role="alert" aria-live="polite"></div></div>
+  </section>
+  <section class="panel"><div class="stats"><div class="stat"><b id="minesLeft">10</b><span>Kalan mayın*</span></div><div class="stat"><b id="timer">00:00</b><span>Süre</span></div><div class="stat"><b id="opened">0/71</b><span>Açılan güvenli kare</span></div></div><div id="status" class="status" role="status" aria-live="polite">Bir kareye dokun ve başla!</div><div class="tools"><button class="mode active" id="revealMode" aria-pressed="true">◻ Kare aç</button><button class="mode" id="flagMode" aria-pressed="false">⚑ Bayrak koy</button></div>
+    <div class="boardOuter" id="boardOuter"><div id="board" class="board" role="group" aria-label="Mayın tarlası"></div></div><p class="hint">Bayrak moduyla şüphelendiğin kareleri işaretle. Bilgisayarda sağ tıkla da bayrak koyabilirsin. İlk dokunuşta mayına basmazsın.</p><p class="records" id="records"></p></section>
+  <div class="footer">* Kalan mayın = toplam mayın − koyduğun bayrak sayısı. Oyun internet bağlantısı olmadan çalışır.</div>
+</main><div id="toast" role="status"></div><script src="game.js" defer></script>
+</body></html>
